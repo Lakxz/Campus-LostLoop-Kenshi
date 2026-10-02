@@ -1,0 +1,556 @@
+/* =========================================================
+   CAMPUS LOSTLOOP
+   Global Design System
+========================================================= */
+
+/* ---------- Fonts ---------- */
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@400;500;600;700&display=swap");
+
+/* ---------- Tailwind ---------- */
+
+@import "tailwindcss";
+
+/*
+  Tailwind v4:
+  Make dark: respond to the .dark class
+  instead of relying on prefers-color-scheme.
+*/
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+  font-family: "Manrope", sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color-scheme: light;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+.dark {
+  color-scheme: dark;
+}
+
+
+/* =========================================================
+   HTML
+========================================================= */
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+  margin: 0;
+
+  min-width: 320px;
+  min-height: 100vh;
+
+  background: #f8fafc;
+  color: #0f172a;
+
+  overflow-x: hidden;
+
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+
+/* Dark body */
+
+.dark body {
+  background: #050505;
+  color: #f8fafc;
+}
+
+
+/* =========================================================
+   ROOT APP
+========================================================= */
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+
+/* =========================================================
+   BOX SIZING
+========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Sora", sans-serif;
+}
+
+p {
+  margin: 0;
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 0;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+input,
+textarea,
+select,
+button {
+  outline: none;
+}
+
+
+/* Remove default select appearance */
+
+select {
+  appearance: none;
+}
+
+
+/* =========================================================
+   PLACEHOLDER
+========================================================= */
+
+::placeholder {
+  color: #94a3b8;
+  opacity: 1;
+}
+
+.dark ::placeholder {
+  color: #475569;
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection {
+  background: #2563eb;
+  color: white;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+/* Chrome / Edge / Safari */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+
+/* Dark scrollbar */
+
+.dark::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+.dark::-webkit-scrollbar-thumb {
+  background: #27272a;
+}
+
+.dark::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+
+/* Firefox */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+.dark * {
+  scrollbar-color: #27272a #050505;
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   MOBILE TAP
+========================================================= */
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   SMOOTH THEME TRANSITIONS
+========================================================= */
+
+.theme-transition,
+.theme-transition * {
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+
+/* =========================================================
+   GLASS UTILITY
+========================================================= */
+
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.dark .glass {
+  background: rgba(5, 5, 5, 0.72);
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+
+/* =========================================================
+   PREMIUM CARD
+========================================================= */
+
+.premium-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.premium-card:hover {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow:
+    0 20px 45px rgba(15, 23, 42, 0.08);
+}
+
+.dark .premium-card {
+  background: #080808;
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+.dark .premium-card:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   BLUE GLOW
+========================================================= */
+
+.blue-glow {
+  box-shadow:
+    0 0 0 1px rgba(59, 130, 246, 0.08),
+    0 15px 50px rgba(59, 130, 246, 0.08);
+}
+
+
+/* =========================================================
+   ANIMATED DOT
+========================================================= */
+
+.live-dot {
+  position: relative;
+}
+
+.live-dot::before {
+  content: "";
+
+  position: absolute;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 999px;
+
+  background: #22c55e;
+
+  animation: livePulse 2s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(1.5);
+  }
+}
+
+
+/* =========================================================
+   FLOATING ANIMATION
+========================================================= */
+
+.float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+
+/* =========================================================
+   SHIMMER
+========================================================= */
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  transform: translateX(-100%);
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.12),
+    transparent
+  );
+
+  animation: shimmer 2.5s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+
+/* =========================================================
+   SKELETON
+========================================================= */
+
+.skeleton {
+  background: #e2e8f0;
+  border-radius: 8px;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+.dark .skeleton {
+  background: #18181b;
+}
+
+@keyframes skeletonPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   TEXT GRADIENT
+========================================================= */
+
+.text-gradient {
+  background: linear-gradient(
+    100deg,
+    #2563eb,
+    #06b6d4
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+
+/* =========================================================
+   RESPONSIVE HELPERS
+========================================================= */
+
+.mobile-only {
+  display: block;
+}
+
+.desktop-only {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+
+  .desktop-only {
+    display: block;
+  }
+}
+
+
+/* =========================================================
+   MOBILE TYPOGRAPHY
+========================================================= */
+
+@media (max-width: 640px) {
+  html {
+    font-size: 15px;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  nav,
+  footer,
+  button {
+    display: none !important;
+  }
+}
